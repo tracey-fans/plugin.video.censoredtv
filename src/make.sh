@@ -7,8 +7,19 @@ rm -f Censored.zip
 # Copy the license file
 cp ../LICENSE ./plugin.video.censoredtv/LICENSE.md
 
-# Do the zipping
+# Do the zipping. In Windows, the following command will probably be okay:
+#
+#     zip -rq ./Censored.zip ./plugin.video.censoredtv
+#
+#  (and all the following stuff with "7z rn" can be omitted). On Linux we need to
+#  use the -k option.
+#
+
 zip -rqk ./Censored.zip ./plugin.video.censoredtv
+
+# Done with the license file
+rm -f ./plugin.video.censoredtv/LICENSE.md
+
 
 # Now this is a hack to get zip working in Linux. See:
 #

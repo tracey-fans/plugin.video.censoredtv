@@ -30,6 +30,7 @@ Now you should be able to view videos!
 
 Version 1.0.0:
 * New plugin
+
 Version 1.0.1:
 * Better artwork
 * Password in settings page is hidden

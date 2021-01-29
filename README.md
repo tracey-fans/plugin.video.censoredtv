@@ -2,9 +2,9 @@
 A Kodi plugin for viewing CENSORED.TV content
 
 The current version (v1.0.1) can only view content by AIU (Devon Tracey). Other
-creators will be added soon.
+creators will be added soon. This has been tested on Leia (v18.9). It should work on other versions of Kodi also.
 
-This has been tested on Leia (v18.9). It should work on other versions of Kodi also.
+This is an unofficial plugin and is not associated with Censored.TV in any way.
 
 ## How to use:
 
@@ -25,3 +25,11 @@ logon. Finally go to:
 &ensp;Video > Video add-ons > Censored TV
   
 Now you should be able to view videos!
+
+## History
+
+Version 1.0.0:
+* New plugin
+Version 1.0.1:
+* Better artwork
+* Password in settings page is hidden

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<addon id="plugin.video.censoredtv" name="Censored TV" version="1.0.1" provider-name="tracey-fans">
+<addon id="plugin.video.censoredtv" name="Censored TV" version="1.0.2" provider-name="tracey-fans">
   <requires>
     <import addon="xbmc.python" version="2.26.0"/>
     <import addon="script.module.requests" version="2.22.0"/>
@@ -13,7 +13,7 @@
     <summary lang="en_GB">Censored TV</summary>
     <description lang="en_GB">Censored TV</description>
     <disclaimer lang="en_GB">The use of this add-on may not be legal in your country of residence - please check with your local laws before installing.
-Also, all of this content is property of Censored.TV. If you put it on YouTube or anywhere else without our permission, we will get it taken down."</disclaimer>
+Also, all of this content is property of Censored.TV. If you put it on YouTube or anywhere else without our permission, we will get it taken down</disclaimer>
     <assets>
       <icon>resources/media/icon.png</icon>
       <fanart>resources/media/fanart.jpg</fanart>
@@ -29,6 +29,7 @@ Also, all of this content is property of Censored.TV. If you put it on YouTube o
     <news>
 v1.0.0 New plugin
 v1.0.1  -Better artwork  -Password in settings page is hidden
+v1.0.2  -Change sort order in list -Images now display
     </news>
   </extension>
 </addon>

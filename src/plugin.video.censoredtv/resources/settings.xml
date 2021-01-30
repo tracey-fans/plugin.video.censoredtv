@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <settings>
-    <category label="1052">
+    <category label="30014">
         <setting label="29911" type="text"   id="email"                    enable="true" default=""/>
         <setting label="733"   type="text"   id="password" option="hidden" enable="true" default=""/>
     </category>

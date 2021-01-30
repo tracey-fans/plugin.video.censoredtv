@@ -1,7 +1,7 @@
 # plugin.video.censoredtv
 A Kodi plugin for viewing CENSORED.TV content
 
-The current version (v1.0.1) can only view content by AIU (Devon Tracey). Other
+The current version (v1.0.2) can only view content by AIU (Devon Tracey). Other
 creators will be added soon. This has been tested on Leia (v18.9). It should work on other versions of Kodi also.
 
 This is an unofficial plugin and is not associated with Censored.TV in any way.
@@ -27,6 +27,11 @@ logon. Finally go to:
 Now you should be able to view videos!
 
 ## History
+
+Version 1.0.2:
+* Change sort order in video listing
+* Images now display in video listing
+* Tweak icon colour tone
 
 Version 1.0.1:
 * Better artwork

@@ -28,3 +28,7 @@ msgctxt "Addon Disclaimer"
 msgid "The use of this add-on may not be legal in your country of residence - please check with your local laws before installing."
 "Also, all of this content is property of Censored.TV. If you put it on YouTube or anywhere else without our permission, we will get it taken down."
 msgstr ""
+
+msgctxt "#30014"
+msgid "Account"
+msgstr ""

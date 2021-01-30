@@ -85,19 +85,20 @@ def list_videos(category):
 
     for link in soup.find_all("div", class_="card my-3 my-lg-0"):
         
-        best_img = None
         best_href = None
-        best_title = "Dummy Text"
+        best_title = "No title"
+        best_img = ""
+        bug_img = ""
         
         try:
-            best_img = link.img["src"]
+            bug_img = urljoin("https://censored.tv", link.img["src"])
         except:
             pass
         
         
         # Try to parse the "style" component to get a single-quote-denominated url
         # out of it. Don't worry too much if anything fails, we can always fall back
-        # to the bug picture.
+        # to an empty picture.
         if link.img["style"] != None:
           
             p = re.compile("background-image:.*url\('(.*)'.*")
@@ -105,7 +106,7 @@ def list_videos(category):
             
             if m != None:
                 try:
-                    best_img = m[1]
+                    best_img = m.group(1)
                 except:
                     pass
                     
@@ -117,7 +118,7 @@ def list_videos(category):
                     for t in q.find_all(class_="card-title"):
                         best_title = t.text
                             
-        if best_href != None and best_img != None:
+        if best_href != None:
 
             # Create a list item with a text label and a thumbnail image.
             list_item = xbmcgui.ListItem(label=best_title)
@@ -125,7 +126,12 @@ def list_videos(category):
             list_item.setInfo('video', {'title': best_title, 'genre': 'Censored TV'})
             # Set graphics (thumbnail, fanart, banner, poster, landscape etc.) for the list item.
             # Here we use the same image for all items for simplicity's sake.
-            list_item.setArt({'thumb': best_img, 'icon': best_img, 'fanart': best_img})
+            list_item.setArt(
+                {'thumb' : best_img,       # Next to item in list
+                 'icon'  : best_img,       # Not used?
+                 'fanart': bug_img,        # Background.
+                 'poster': best_img        # Main image for vid
+                })
             # Set 'IsPlayable' property to 'true'.
             # This is mandatory for playable items!
             list_item.setProperty('IsPlayable', 'true')
@@ -137,8 +143,11 @@ def list_videos(category):
             # Add our item to the Kodi virtual folder listing.
             xbmcplugin.addDirectoryItem(_handle, url, list_item, is_folder)
 
-    # Add a sort method for the virtual folder items (alphabetically, ignore articles)
-    xbmcplugin.addSortMethod(_handle, xbmcplugin.SORT_METHOD_LABEL_IGNORE_THE)
+    # Don't add a sort method for the virtual folder items. It seems that the
+    # default is to sort in the order they're added, which is fine. Sorting by
+    # tracknumber causes a number to appear in front of every label in the list
+    # which looks naff.
+    #xbmcplugin.addSortMethod(_handle, xbmcplugin.SORT_METHOD_TRACKNUM)
     # Finish creating a virtual folder.
     xbmcplugin.endOfDirectory(_handle)
 
@@ -204,7 +213,11 @@ def play_video(path):
 
 
     if len(content_links) < 1:
-        xmbc.log("CENSOREDTV: No content links found. Exiting", xmbc.LOGINFO)
+        # No content. This tends to happen if the user's password is wrong. Send
+        # a message to that extent. TODO: use the translation system!!
+        dialog = xbmcgui.Dialog()
+        dialog.notification('Password wrong', 'Could not log onto Censored.TV. Check e-mail and password settings in the Configuration of this add-on.', xbmcgui.NOTIFICATION_INFO, 5000)
+        xbmc.log("CENSOREDTV: No content links found. Exiting", xbmc.LOGINFO)
         return
 
 
@@ -233,7 +246,7 @@ def play_video(path):
 
 
     if len(f_5) <= 0:
-        xmbc.log("CENSOREDTV: Haven't found the right resolution", xmbc.LOGINFO)
+        xbmc.log("CENSOREDTV: Haven't found the right resolution", xbmc.LOGINFO)
         return
 
 
@@ -259,7 +272,7 @@ def play_video(path):
 
 
     if len(s_7) == 0:
-        xmbc.log("CENSOREDTV: Did not find content", xmbc.LOGINFO)
+        xbmc.log("CENSOREDTV: Did not find content", xbmc.LOGINFO)
         return
     elif len(s_7) == 1:
         # Exactly one piece of content pointed to. Send that piece to Kodi, it works

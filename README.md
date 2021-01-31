@@ -1,5 +1,5 @@
 # plugin.video.censoredtv
-A Kodi plugin for viewing CENSORED.TV content
+A Kodi plugin for viewing [CENSORED.TV](https://censored.tv) content
 
 The current version (v1.0.2) can only view content by AIU. Other
 creators will be added soon. This has been tested on Leia (v18.9). It should work on other versions of Kodi also.

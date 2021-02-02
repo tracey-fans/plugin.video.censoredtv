@@ -209,7 +209,7 @@ def play_video(path):
 
     if len(post) > 1:
         r = session.post(urljoin("https://censored.tv", post), post_val)
-        
+
         # Discard r, we don't need it. All we need are the cookies.
       
     
@@ -217,7 +217,7 @@ def play_video(path):
     #
     
     r3 = session.get(urljoin("https://censored.tv", path))
-           
+
     soup3 = BeautifulSoup(r3.content, 'html.parser')
 
 
@@ -247,34 +247,43 @@ def play_video(path):
     ## Parse the contents to get the right resolution
     #
     f_5 = ""
+    f_6 = ""
 
-    found_line = False
+    found_line_preferred = False
+    found_line_other = False
 
     for line in r4.text.splitlines():
         if line[:18] == "#EXT-X-STREAM-INF:":
             if line.find("RESOLUTION=" + the_preferred_resolution) >= 0:
-                found_line = True
+                found_line_preferred = True
+            elif line.find("RESOLUTION=") >= 0:
+                found_line_other = True
         else:
-            if found_line:
+            if found_line_preferred:
                 f_5 = line
                 break
-            found_line = False
+            if found_line_other and f_6 == "":
+                f_6 = line
+            found_line_preferred = False
+            found_line_other = False
 
 
-    if len(f_5) <= 0:
+    if len(f_5) <= 0 and len(f_6) <= 0:
         xbmc.log("CENSOREDTV: Haven't found the right resolution", xbmc.LOGINFO)
         return
 
 
 
-
-    f_6 = urljoin(content_links[0], f_5)
+    if f_5 != "":
+        f_7 = urljoin(content_links[0], f_5)
+    else:
+        f_7 = urljoin(content_links[0], f_6)
 
 
 
     ## Read the file
     #
-    r_5 = session.get(f_6)
+    r_5 = session.get(f_7)
     
 
     s_7 = set()
@@ -293,13 +302,12 @@ def play_video(path):
     elif len(s_7) == 1:
         # Exactly one piece of content pointed to. Send that piece to Kodi, it works
         # better to do that way
-        SEND_1 = urljoin(f_6, next(iter(s_7)))
+        SEND_1 = urljoin(f_7, next(iter(s_7)))
     else:
         # More than one piece of content. We have no choice but to send the whole thing
-        SEND_1 = f_6
+        SEND_1 = f_7
 
 
-    
     # Create a playable item with a path to play.
     play_item = xbmcgui.ListItem(path=SEND_1)
     # Pass the item to the Kodi player.

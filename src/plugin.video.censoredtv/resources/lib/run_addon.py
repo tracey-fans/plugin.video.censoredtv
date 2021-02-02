@@ -7,7 +7,7 @@
 """
 import sys
 from urllib import urlencode
-from urlparse import urljoin, parse_qsl
+from urlparse import urljoin, parse_qsl, urlparse
 import xbmc
 import xbmcgui
 import xbmcplugin
@@ -42,27 +42,43 @@ def list_categories():
     r = requests.api.get('https://censored.tv')
     
     soup = BeautifulSoup(r.content, 'html.parser')
+    
+    set_of_hrefs = set()
 
     for link in soup.find_all("a", class_="dropdown-item"):
-        lnk_txt = link.text.strip()
-        if "UNSTOPPABLE" in lnk_txt.upper():  # Look for AIU!
-            img_lnk = link.img["src"]
-            info_txt = "Devon Tracey"
-            list_item = xbmcgui.ListItem(label=info_txt)
-            list_item.setArt({'thumb': img_lnk,
-                              'icon': img_lnk,
-                              'fanart': img_lnk})
-            list_item.setInfo('video', {'title': info_txt, 'genre': info_txt})
-        
-            url = get_url(action='listing', category=link["href"])
-            # is_folder = True means that this item opens a sub-list of lower level items.
-            is_folder = True
-            # Add our item to the Kodi virtual folder listing.
-            xbmcplugin.addDirectoryItem(_handle, url, list_item, is_folder)
-            
-            # For some reason each category appears twice in the HTML. Leave when
-            # we've got one.
-            break
+        # Look for links that are relative and have an image attached. Those are
+        # the shows
+        if link.img != None and link.get("href", None) != None:
+            if urlparse(link["href"]).netloc == "":
+
+                # Looks for duplicates
+                if link["href"] in set_of_hrefs:
+                    # Is a duplicate. Do nothing
+                    pass
+                else:
+                    # Not a duplicate
+
+                    set_of_hrefs.add(link["href"])
+
+                    img_lnk = link.img["src"]
+                    info_txt = link.text.strip()
+                    list_item = xbmcgui.ListItem(label=info_txt)
+                    list_item.setArt({'thumb': img_lnk,
+                                      'icon': img_lnk,
+                                      'fanart': img_lnk})
+                    list_item.setInfo('video', {'title': info_txt, 'genre': info_txt})
+
+                    if "UNSTOPPABLE" in info_txt.upper():
+                        # Make sure AIU sorts at the top of the list. This is for
+                        # my benefit since I like this creator. Could possibly
+                        # become an option?
+                        list_item.setProperty("SpecialSort", "top")
+
+                    url = get_url(action='listing', category=link["href"])
+                    # is_folder = True means that this item opens a sub-list of lower level items.
+                    is_folder = True
+                    # Add our item to the Kodi virtual folder listing.
+                    xbmcplugin.addDirectoryItem(_handle, url, list_item, is_folder)
 
     # Add a sort method for the virtual folder items (alphabetically, ignore articles)
     xbmcplugin.addSortMethod(_handle, xbmcplugin.SORT_METHOD_LABEL_IGNORE_THE)

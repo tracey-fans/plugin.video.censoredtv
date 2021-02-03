@@ -1,9 +1,9 @@
 # plugin.video.censoredtv
-A Kodi plugin for viewing [CENSORED.TV](https://censored.tv) content
+A Kodi plugin for viewing [CENSORED.TV](https://censored.tv), featuring content from Devon Tracey, Gavin McInnes, Milo Yiannopolis &amp; many others.
 
 This has been tested on Leia (v18.9). It should work on other versions of Kodi also.
 
-This is an unofficial plugin and is not associated with Censored.TV in any way. A valid subscription is required to use this plugin.
+This is an unofficial plugin and is not associated with Censored.TV in any way. A valid subscription to Censored.TV is required to use the plugin.
 
 ## How to use:
 
@@ -28,6 +28,10 @@ logon. Finally go to:
 Now you should be able to view videos!
 
 ## History
+
+Version 1.1.2:
+* Update screenshots
+* Language elements properly supported
 
 Version 1.1.1:
 * Small tweak to get Milo's content playing

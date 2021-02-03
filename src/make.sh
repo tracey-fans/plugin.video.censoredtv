@@ -7,6 +7,11 @@ rm -f Censored.zip
 # Copy the license file
 cp ../LICENSE ./plugin.video.censoredtv/LICENSE.md
 
+# Rename the screenshot files -- their names clash in the "DOS 8.3" zipping
+mv ./plugin.video.censoredtv/resources/media/screenshot-01.jpg ./plugin.video.censoredtv/resources/media/01ss.jpg 
+mv ./plugin.video.censoredtv/resources/media/screenshot-02.jpg ./plugin.video.censoredtv/resources/media/02ss.jpg 
+mv ./plugin.video.censoredtv/resources/media/screenshot-03.jpg ./plugin.video.censoredtv/resources/media/03ss.jpg 
+
 # Do the zipping. In Windows, the following command will probably be okay:
 #
 #     zip -rq ./Censored.zip ./plugin.video.censoredtv
@@ -17,9 +22,11 @@ cp ../LICENSE ./plugin.video.censoredtv/LICENSE.md
 
 zip -rqk ./Censored.zip ./plugin.video.censoredtv
 
-# Done with the license file
+# Done with the license file and screenshots
 rm -f ./plugin.video.censoredtv/LICENSE.md
-
+mv ./plugin.video.censoredtv/resources/media/01ss.jpg ./plugin.video.censoredtv/resources/media/screenshot-01.jpg 
+mv ./plugin.video.censoredtv/resources/media/02ss.jpg ./plugin.video.censoredtv/resources/media/screenshot-02.jpg 
+mv ./plugin.video.censoredtv/resources/media/03ss.jpg ./plugin.video.censoredtv/resources/media/screenshot-03.jpg 
 
 # Now this is a hack to get zip working in Linux. See:
 #
@@ -44,14 +51,16 @@ rm -f ./plugin.video.censoredtv/LICENSE.md
 7z rn Censored.zip plugin.video.censoredtv/resources/LIB plugin.video.censoredtv/resources/lib  1> /dev/null
 7z rn Censored.zip plugin.video.censoredtv/resources/LANGUAGE plugin.video.censoredtv/resources/language  1> /dev/null
 
-7z rn Censored.zip plugin.video.censoredtv/resources/media/SCREENSH.JPG plugin.video.censoredtv/resources/media/screenshot-01.jpg  1> /dev/null
+7z rn Censored.zip plugin.video.censoredtv/resources/media/01SS.JPG plugin.video.censoredtv/resources/media/screenshot-01.jpg  1> /dev/null
+7z rn Censored.zip plugin.video.censoredtv/resources/media/02SS.JPG plugin.video.censoredtv/resources/media/screenshot-02.jpg  1> /dev/null
+7z rn Censored.zip plugin.video.censoredtv/resources/media/03SS.JPG plugin.video.censoredtv/resources/media/screenshot-03.jpg  1> /dev/null
 7z rn Censored.zip plugin.video.censoredtv/resources/media/FANART.JPG plugin.video.censoredtv/resources/media/fanart.jpg  1> /dev/null
 7z rn Censored.zip plugin.video.censoredtv/resources/media/ICON.PNG plugin.video.censoredtv/resources/media/icon.png  1> /dev/null
 
 7z rn Censored.zip plugin.video.censoredtv/resources/lib/RUN_ADDO.PY plugin.video.censoredtv/resources/lib/run_addon.py  1> /dev/null
 7z rn Censored.zip plugin.video.censoredtv/resources/lib/__INIT__.PY plugin.video.censoredtv/resources/lib/__init__.py  1> /dev/null
 
-7z rn Censored.zip plugin.video.censoredtv/resources/language/RESOURCE.LAN plugin.video.censoredtv/resources/language/resources.language.en_gb  1> /dev/null
-7z rn Censored.zip plugin.video.censoredtv/resources/language/resources.language.en_gb/STRING.PO plugin.video.censoredtv/resources/language/resources.language.en_gb/strings.po  1> /dev/null
+7z rn Censored.zip plugin.video.censoredtv/resources/language/RESOURCE.LAN plugin.video.censoredtv/resources/language/resource.language.en_gb  1> /dev/null
+7z rn Censored.zip plugin.video.censoredtv/resources/language/resource.language.en_gb/STRINGS.PO plugin.video.censoredtv/resources/language/resource.language.en_gb/strings.po  1> /dev/null
 
 # The zip is ready! Rename it manually and copy to ../zips/ directory.

@@ -29,6 +29,9 @@ Now you should be able to view videos!
 
 ## History
 
+Version 1.1.1:
+* Small tweak to get Milo's content playing
+
 Version 1.1.0:
 * All creators now supported! All will appear in the directory listing, if issues playing any particular creator please raise it as an issue in Github.
 

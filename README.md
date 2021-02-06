@@ -30,11 +30,13 @@ Now you should be able to view videos!
 
 ## Screenshots
 
+<div>
 <img src="/src/plugin.video.censoredtv/resources/media/screenshot-01.jpg" alt="Creator list with focus on Katie Hopkin's &quot;Rude Brittania&quot;" title="Creator list with focus on Katie Hopkin's &quot;Rude Brittania&quot;" align="left" width="475" />
 <img src="/src/plugin.video.censoredtv/resources/media/screenshot-02.jpg" alt="Video listing for &quot;Get Off My Lawn&quot; with thumbnail of Gavin McInnes looking sketchy"	title="Video listing for &quot;Get Off My Lawn&quot; with thumbnail of Gavin McInnes looking sketchy" align="left" width="475" />
-
-&nbsp;&nbsp;&nbsp;
-<img src="/src/plugin.video.censoredtv/resources/media/screenshot-03.jpg" alt="Example account settings page with a made-up email and hidden password"	title="Example account settings page with a made-up email and hidden password" class="center" padding="5px" width="475" />
+</div>
+<div>
+<img src="/src/plugin.video.censoredtv/resources/media/screenshot-03.jpg" alt="Example account settings page with a made-up email and hidden password"	title="Example account settings page with a made-up email and hidden password" class="center" width="475" />
+</div>
 
 ## History
 

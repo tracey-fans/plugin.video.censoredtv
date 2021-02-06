@@ -7,17 +7,18 @@ This is an unofficial plugin and is not associated with Censored.TV in any way. 
 
 ## How to use:
 
-Download the zip file in the "zips" directory (don't use the zip files that Github
-creates, they will not work!) Put it somewhere on the network that Kodi can see,
-and do the following (Note: you may alternatively follow "How to install from a zip file" in the [official Kodi wiki](https://kodi.wiki/view/Add-on_manager) ):
+Download the latest zip file from the "zips" directory. This is what you will install to Kodi.
 
-&ensp;Settings (&#9881;) > System > Add-ons > Unknown sources (turn to "on")
+Put the zip somewhere on the network that Kodi can see (for example on local storage or a [Samba share](https://kodi.wiki/view/SMB)), and do the following 
+(Note: you may alternatively follow "How to install from a zip file" in the [official Kodi wiki](https://kodi.wiki/view/Add-on_manager) ):
 
-&ensp;Settings (&#9881;) > Add-ons > Install from zip file > (choose the file)
+&ensp;Settings (:gear:) > System > Add-ons > Unknown sources (turn to "on")
+
+&ensp;Settings (:gear:) > Add-ons > Install from zip file > (choose the file)
   
 In a few seconds you should see "Censored.TV installed correctly". Then go to:
 
-&ensp;Settings (&#9881;) > Add-ons > My addons > Video add-ons > Censored TV > Configuration
+&ensp;Settings (:gear:) > Add-ons > My addons > Video add-ons > Censored TV > Configuration
   
 Enter your Censored.TV logon details. (Be aware these will be stored in plaintext
 on the Kodi device). This plugin won't work without a current and valid Censored.TV
@@ -26,6 +27,12 @@ logon. Finally go to:
 &ensp;Videos > Video add-ons > Censored TV
 
 Now you should be able to view videos!
+
+## Screenshots
+
+<img src="/src/plugin.video.censoredtv/resources/media/screenshot-01.jpg" alt="Creator list with focus on Katie Hopkin's &quot;Rude Brittania&quot;" title="Creator list with focus on Katie Hopkin's &quot;Rude Brittania&quot;" align="left" width="300" />
+<img src="/src/plugin.video.censoredtv/resources/media/screenshot-02.jpg" alt="Video listing for &quot;Get Off My Lawn&quot; with thumbnail of Gavin McInnes looking sketchy"	title="Video listing for &quot;Get Off My Lawn&quot; with thumbnail of Gavin McInnes looking sketchy" align="left" width="300" />
+<img src="/src/plugin.video.censoredtv/resources/media/screenshot-03.jpg" alt="Example account settings page with a made-up email and hidden password"	title="Example account settings page with a made-up email and hidden password" align="top" width="300" />
 
 ## History
 

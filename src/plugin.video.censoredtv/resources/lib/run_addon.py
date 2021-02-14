@@ -86,7 +86,7 @@ def list_categories():
     xbmcplugin.endOfDirectory(_handle)
 
 
-def list_videos(category):
+def list_videos(category, page):
     """
     Create the list of playable videos in the Kodi interface.
 
@@ -94,7 +94,11 @@ def list_videos(category):
     :type category: str
     """
     
-    r = requests.api.get(urljoin('https://censored.tv', category))
+    if page > 1:
+        page_str = "?page={0}".format(page)
+    else:
+        page_str = ""  # ...or ?page=1 also works.
+    r = requests.api.get(urljoin('https://censored.tv', category + page_str))
     
     soup = BeautifulSoup(r.content, 'html.parser')
 
@@ -164,6 +168,27 @@ def list_videos(category):
     # tracknumber causes a number to appear in front of every label in the list
     # which looks naff.
     #xbmcplugin.addSortMethod(_handle, xbmcplugin.SORT_METHOD_TRACKNUM)
+    
+    
+    # Add a "Next" option if supported
+    if True:
+      
+        if soup.find_all(class_="page-link", rel="next"):
+            # The page has a "Next" button. This will normally be the case, except
+            # if it's the last page of content
+
+            list_item = xbmcgui.ListItem(label=xbmc.getLocalizedString(209))  # "Next"
+            url = get_url(action='listing', category=category, page=str(page+1))
+            # is_folder = True means that this item opens a sub-list of lower level items.
+            is_folder = True
+            # set a special sort property
+            list_item.setProperty("SpecialSort", "bottom")
+            # Add our item to the Kodi virtual folder listing.
+            xbmcplugin.addDirectoryItem(_handle, url, list_item, is_folder)
+        
+        
+    
+    
     # Finish creating a virtual folder.
     xbmcplugin.endOfDirectory(_handle)
 
@@ -329,7 +354,7 @@ def router(paramstring):
     if params:
         if params['action'] == 'listing':
             # Display the list of videos in a provided category.
-            list_videos(params['category'])
+            list_videos(params['category'], int(params.get('page', '1')))
         elif params['action'] == 'play':
             # Play a video from a provided URL.
             play_video(params['video'])

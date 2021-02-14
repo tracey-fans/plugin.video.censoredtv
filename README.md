@@ -38,6 +38,9 @@ Now you should be able to view videos!
 
 ## History
 
+Version 1.1.3:
+* "Next" button added to video listings. Previously, only the first 10 videos per creator could be accessed.
+
 Version 1.1.2:
 * Update screenshots
 * Language elements properly supported

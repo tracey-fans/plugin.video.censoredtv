@@ -6,8 +6,7 @@
     See LICENSES/MIT.md for more information.
 """
 import sys
-from urllib import urlencode
-from urlparse import urljoin, parse_qsl, urlparse
+from future.moves.urllib.parse import urlparse, urlencode, urljoin, parse_qsl
 import xbmc
 import xbmcgui
 import xbmcplugin

@@ -5,6 +5,15 @@ This has been tested on Leia (v18.9). It should work on other versions of Kodi a
 
 This is an unofficial plugin and is not associated with Censored.TV in any way. A valid subscription to Censored.TV is required to use the plugin.
 
+### v18 (Leia) and earlier
+
+The latest release of this plugin for Kodi v18 (Leia) is "plugin.video.censoredtv-1.1.3.zip". This has
+been tested on v18.9 and should work for earlier versions.
+
+### v19 (Matrix)
+
+Beta support for Kodi v19 (Matrix) is "plugin.video.censoredtv-1.1.3-matrix.1.zip".
+
 ## How to use:
 
 Download the latest zip file from the "zips" directory. This is what you will install to Kodi.
@@ -35,6 +44,14 @@ Now you should be able to view videos!
 <img src="/src/plugin.video.censoredtv/resources/media/screenshot-02.jpg" alt="Video listing for &quot;Get Off My Lawn&quot; with thumbnail of Gavin McInnes looking sketchy"	title="Video listing for &quot;Get Off My Lawn&quot; with thumbnail of Gavin McInnes looking sketchy" align="left" width="450" />
 
 <img src="/src/plugin.video.censoredtv/resources/media/screenshot-03.jpg" alt="Example account settings page with a made-up email and hidden password"	title="Example account settings page with a made-up email and hidden password" class="center" width="450" />
+
+## Note on use of login details
+
+The plugin tries to minimise the number of times your account login details are sent to
+Censored.TV. Creator list and lists
+of videos for each creator are publicly available so these are accessed _without_ logging in. Your
+account details are only used when selecting "play" on a video, and then only once
+&mdash; since most videos on the site are long (30+ minutes) that's likely quite infrequent.
 
 ## History
 

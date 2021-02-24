@@ -1,5 +1,5 @@
 # plugin.video.censoredtv
-A Kodi plugin for viewing [CENSORED.TV](https://censored.tv), featuring content from Devon Tracey, Gavin McInnes, Milo Yiannopoulis &amp; many others.
+A Kodi plugin for viewing [CENSORED.TV](https://censored.tv), featuring content from Devon Tracey, Gavin McInnes, Milo Yiannopoulos &amp; many others.
 
 This is an unofficial plugin and is not associated with Censored.TV in any way. A valid subscription to Censored.TV is required to use the plugin.
 

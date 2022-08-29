@@ -1,5 +1,5 @@
 # plugin.video.censoredtv
-A Kodi plugin for viewing [CENSORED.TV](https://censored.tv), featuring content from Devon Tracey, Gavin McInnes, Milo Yiannopoulos &amp; many others.
+A Kodi plugin for viewing [CENSORED.TV](https://censored.tv), featuring content from Devon Tracey, Gavin McInnes &amp; many others.
 
 This is an unofficial plugin and is not associated with Censored.TV in any way. A valid subscription to Censored.TV is required to use the plugin.
 
@@ -8,9 +8,9 @@ This is an unofficial plugin and is not associated with Censored.TV in any way. 
 The latest release of this plugin for Kodi v18 (Leia) is "zips/plugin.video.censoredtv-1.1.3.zip". This has
 been tested on v18.9 and should work for earlier versions.
 
-### v19 (Matrix)
+### v19 (Matrix) and later
 
-Beta support for Kodi v19 (Matrix) is in "zips/plugin.video.censoredtv-1.1.3-matrix.1.zip".
+Support for Kodi v19 (Matrix) is in "zips/plugin.video.censoredtv-1.1.3-matrix.1.zip".
 
 ## How to use:
 
